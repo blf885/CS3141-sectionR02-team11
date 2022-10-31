@@ -91,8 +91,23 @@ class ChooseVehicle extends StatelessWidget {
   }
 }
 
-class TrickGen extends StatelessWidget {
+final List<String> difficulty = [
+  'Easy',
+  'Intermediate',
+  'Hard',
+];
+
+String? selectedDifficulty;
+
+class TrickGen extends StatefulWidget {
   const TrickGen({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _TrickGen createState() => _TrickGen();
+}
+
+class _TrickGen extends State<TrickGen> {
 
   @override
   Widget build(BuildContext context) {
@@ -100,24 +115,73 @@ class TrickGen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Trick Generator'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            elevation: 25,
-            minimumSize: const Size(200, 50),
-            maximumSize: const Size(200, 50),
-          ),
-          onPressed: () {
-            Navigator.pop(context);
+      body: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
 
-            // CURRENTLY NAVIGATES BACK TO HOME PAGE. THIS WILL NOT BE THE CASE.
-            // THIS IS WHERE THE GENERATED TRICKS WILL SHOW UP WHEN YOU PUSH THE BUTTON!!
+              Container (
+                margin: const EdgeInsets.all(25),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 25,
+                    minimumSize: const Size(200, 50),
+                    maximumSize: const Size(200, 50),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
 
-          },
-          child: const Text('Generate Trick'),
+                    // CURRENTLY NAVIGATES BACK TO HOME PAGE. THIS WILL NOT BE THE CASE.
+                    // THIS IS WHERE THE GENERATED TRICKS WILL SHOW UP WHEN YOU PUSH THE BUTTON!!
+
+                  },
+                  child: const Text('Generate Trick'),
+                ),
+              ),
+
+              DropdownButtonHideUnderline(
+                child: DropdownButton(
+                  
+                  hint: Text(
+                    'Select Difficulty',
+                    style: TextStyle(
+                    fontSize: 14,
+                    color: Theme
+                      .of(context)
+                      .hintColor,
+                    ),
+                  ),
+
+                  items: difficulty
+                    .map((item) =>
+                    DropdownMenuItem<String>(
+                      value: item,
+                      alignment: AlignmentDirectional.centerStart,
+                      child: Text(
+                        item,
+                        style: const TextStyle(
+                          fontSize: 14,
+                        ),
+                      ),
+                    ))
+                    .toList(),
+                  value: selectedDifficulty,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedDifficulty = value as String;
+                    });
+                  },
+                ),
+              ),
+              
+            ],
+          ), 
         ),
-      ),
+      )
     );
+    
   }
 }
 /*
