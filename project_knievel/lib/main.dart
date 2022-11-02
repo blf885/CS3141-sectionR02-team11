@@ -125,6 +125,21 @@ class TrickList {
       this.intBikeSize,
       this.intScooterSize,
       this.intSkateSize);
+
+  // this constructor requires the name, the size
+  /*
+    TrickList( this.list,
+      this.size,
+      this.begScooterSize,
+      this.begBikeSize,
+      this.begSkateSize,
+      this.expBikeSize,
+      this.expScooterSize,
+      this.expSkateSize,
+      this.intBikeSize,
+      this.intScooterSize,
+      this.intSkateSize, {required this.name});
+  */
 }
 
 // Feature class constructor
@@ -135,6 +150,12 @@ class Feature {
   bool availability;
 
   Feature(this.availability, this.description, this.name, this.trickList);
+
+  // this constructor requires the name of the feature
+  /*
+    Feature(this.availability, this.description. this.trickList, {required this.name});
+  */
+
 }
 
 // Trick Generator constructor to initialize paramenters for this class
@@ -146,9 +167,16 @@ class TrickGenerator {
       featureList; // will need to be adjusted for doubly linked list implementation
 
   TrickGenerator(this.difficulty, this.featureList, this.known, this.vehicle);
+
+// this constructor requires the 'known' and the 'vehicle' type parameters to be entered. All others are optional
+/*
+  TrickGenerator(this.difficulty, this.featureList,
+      {required this.known, required this.vehicle});
+
+*/
 }
 
-// Trick class constructor
+// Trick class
 class Trick {
   String name;
   String description;
@@ -159,6 +187,13 @@ class Trick {
 
   Trick(this.description, this.difficulty, this.featureList, this.howTo,
       this.name, this.vehicle);
+
+// this constructor requires name and vehcle type for this class but others are optional (Can be uncommented)
+/*
+  Trick(this.description, this.difficulty, this.featureList, this.howTo,
+      {required this.name, required this.vehicle});
+ */
+
 }
 
 class TrickGenWidget extends StatelessWidget {
