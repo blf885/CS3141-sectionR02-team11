@@ -20,76 +20,182 @@ class ChooseVehicle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Choose a Vehicle'),
+        title: const Text('Project Knievel'),
       ),
-      body: Padding (
-        padding: const EdgeInsets.all(15),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-
-              Container(
-                margin: const EdgeInsets.all(25),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    elevation: 25,
-                    minimumSize: const Size(200, 50),
-                    maximumSize: const Size(200, 50),
-                  ),                
-                  child: const Text("Skateboard"),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const TrickGen()),
-                    );
-                  },
-                ),
-              ),
-
-              Container(
-                margin: const EdgeInsets.all(25),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    elevation: 25,
-                    minimumSize: const Size(200, 50),
-                    maximumSize: const Size(200, 50),
-                  ),                
-                  child: const Text("Scooter"),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const TrickGen()),
-                    );
-                  },
-                ),
-              ),
-
-              Container(
-                margin: const EdgeInsets.all(25),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    elevation: 25,
-                    minimumSize: const Size(200, 50),
-                    maximumSize: const Size(200, 50),
+      body: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle:
+                        const TextStyle(fontSize: 20, color: Colors.black),
                   ),
-                  child: const Text("Bike"),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const TrickGen()),
-                    );
-                  },
+                  onPressed: null,
+                  child: const Text('Choose a Vehicle'),
                 ),
-              ),
-
-            ],
-          ),
-        )
-      ),
+                Container(
+                  margin: const EdgeInsets.all(25),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      elevation: 25,
+                      minimumSize: const Size(200, 50),
+                      maximumSize: const Size(200, 50),
+                    ),
+                    child: const Text("Skateboard"),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TrickGenWidget()),
+                      );
+                    },
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.all(25),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      elevation: 25,
+                      minimumSize: const Size(200, 50),
+                      maximumSize: const Size(200, 50),
+                    ),
+                    child: const Text("Scooter"),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TrickGenWidget()),
+                      );
+                    },
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.all(25),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      elevation: 25,
+                      minimumSize: const Size(200, 50),
+                      maximumSize: const Size(200, 50),
+                    ),
+                    child: const Text("Bike"),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TrickGenWidget()),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          )),
     );
   }
 }
+
+/* This is the TrickList Constructor including 'mandatory' parameters. */
+class TrickList {
+  String name;
+  String list; // will need to be adjucted for doubly linked list implenentation
+  int size;
+  int begScooterSize;
+  int begSkateSize;
+  int begBikeSize;
+  int intScooterSize;
+  int intBikeSize;
+  int intSkateSize;
+  int expScooterSize;
+  int expSkateSize;
+  int expBikeSize;
+
+  TrickList(
+      this.name,
+      this.list,
+      this.size,
+      this.begScooterSize,
+      this.begBikeSize,
+      this.begSkateSize,
+      this.expBikeSize,
+      this.expScooterSize,
+      this.expSkateSize,
+      this.intBikeSize,
+      this.intScooterSize,
+      this.intSkateSize);
+
+  // this constructor requires the name, the size
+  /*
+    TrickList( this.list,
+      this.size,
+      this.begScooterSize,
+      this.begBikeSize,
+      this.begSkateSize,
+      this.expBikeSize,
+      this.expScooterSize,
+      this.expSkateSize,
+      this.intBikeSize,
+      this.intScooterSize,
+      this.intSkateSize, {required this.name});
+  */
+}
+
+// Feature class constructor
+class Feature {
+  String name;
+  String description;
+  String trickList; // will need to be adjusted to doubly linked list
+  bool availability;
+
+  Feature(this.availability, this.description, this.name, this.trickList);
+
+  // this constructor requires the name of the feature
+  /*
+    Feature(this.availability, this.description. this.trickList, {required this.name});
+  */
+
+}
+
+// Trick Generator constructor to initialize paramenters for this class
+class TrickGenerator {
+  bool known;
+  int difficulty;
+  int vehicle;
+  String featureList; // will need to be adjusted for doubly linked list implementation
+
+  TrickGenerator(this.difficulty, this.featureList, this.known, this.vehicle);
+
+// this constructor requires the 'known' and the 'vehicle' type parameters to be entered. All others are optional
+/*
+  TrickGenerator(this.difficulty, this.featureList,
+      {required this.known, required this.vehicle});
+
+*/
+}
+
+// Trick class
+class Trick {
+  String name;
+  String description;
+  int difficulty;
+  String howTo;
+  String featureList; // will be adjucted to doubly linked list implementation
+  int vehicle;
+
+  Trick(this.description, this.difficulty, this.featureList, this.howTo,
+      this.name, this.vehicle);
+
+// this constructor requires name and vehcle type for this class but others are optional (Can be uncommented)
+/*
+  Trick(this.description, this.difficulty, this.featureList, this.howTo,
+      {required this.name, required this.vehicle});
+ */
+
+}
+
+String ? selectedDifficulty;
 
 final List<String> difficulty = [
   'Easy',
@@ -97,17 +203,15 @@ final List<String> difficulty = [
   'Hard',
 ];
 
-String? selectedDifficulty;
-
-class TrickGen extends StatefulWidget {
-  const TrickGen({super.key});
+class TrickGenWidget extends StatefulWidget {
+  const TrickGenWidget({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
   _TrickGen createState() => _TrickGen();
 }
 
-class _TrickGen extends State<TrickGen> {
+class _TrickGen extends State<TrickGenWidget> {
 
   @override
   Widget build(BuildContext context) {
