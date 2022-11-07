@@ -60,4 +60,23 @@ class TrickList {
 
     return oldName;
   }
+
+  //add trick (DLL or whatever else is chosen)
+  //DLL addTrick(Trick theTrick){
+  //Trick trick = new Trick(theTrick);
+  // return trick;
+  //}
+
+  //removetrick(Trick theTrick){
+  //Trick trick = new Trick(theTrick);
+  //
+  //  return trick;
+  //}
+
+  //set the list
+  //DLL setTheList(DLL tricks){
+  //DLL list = new DLL(DLL Tricks);
+  //
+  // return list;
+  //}
 }
