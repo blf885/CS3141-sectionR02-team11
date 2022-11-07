@@ -1,0 +1,63 @@
+/* This is the TrickList class including 'mandatory' parameters. */
+class TrickList {
+  String name;
+  String list; // will need to be adjucted for doubly linked list implenentation
+  int size;
+  int begScooterSize;
+  int begSkateSize;
+  int begBikeSize;
+  int intScooterSize;
+  int intBikeSize;
+  int intSkateSize;
+  int expScooterSize;
+  int expSkateSize;
+  int expBikeSize;
+
+  //Constructor method
+  TrickList(
+      this.name,
+      this.list,
+      this.size,
+      this.begScooterSize,
+      this.begBikeSize,
+      this.begSkateSize,
+      this.expBikeSize,
+      this.expScooterSize,
+      this.expSkateSize,
+      this.intBikeSize,
+      this.intScooterSize,
+      this.intSkateSize);
+
+  // this constructor requires the name, the size
+  /*
+    TrickList( this.list,
+      this.size,
+      this.begScooterSize,
+      this.begBikeSize,
+      this.begSkateSize,
+      this.expBikeSize,
+      this.expScooterSize,
+      this.expSkateSize,
+      this.intBikeSize,
+      this.intScooterSize,
+      this.intSkateSize, {required this.name});
+  */
+
+  // getter methods
+  String getName(String name) {
+    this.name = name;
+
+    return name;
+  }
+
+  int getSize() {
+    return size;
+  }
+
+  // setter methods
+  String setName(String name) {
+    String oldName = name;
+
+    return oldName;
+  }
+}
