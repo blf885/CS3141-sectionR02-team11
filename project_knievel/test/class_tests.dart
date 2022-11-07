@@ -2,6 +2,9 @@ import 'package:test/test.dart';
 import 'package:project_knievel/Trick.dart';
 
 void main() {
+  //---------------------------------------------------------------------------
+  // Trick Class Tests
+
   // Test Trick.setName
   test('Test Trick constructor and Trick.setName method', () {
     Trick theTrick = Trick(
@@ -88,4 +91,7 @@ void main() {
   });
 
   //TODO Add the feature list method tests(x3)
+
+  //---------------------------------------------------------------------------
+  // Feature Class Tests
 }
