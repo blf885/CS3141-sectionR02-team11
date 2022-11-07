@@ -163,7 +163,8 @@ class TrickGenerator {
   bool known;
   int difficulty;
   int vehicle;
-  String featureList; // will need to be adjusted for doubly linked list implementation
+  String
+      featureList; // will need to be adjusted for doubly linked list implementation
 
   TrickGenerator(this.difficulty, this.featureList, this.known, this.vehicle);
 
@@ -195,7 +196,7 @@ class Trick {
 
 }
 
-String ? selectedDifficulty;
+String? selectedDifficulty;
 
 final List<String> difficulty = [
   'Easy',
@@ -212,80 +213,68 @@ class TrickGenWidget extends StatefulWidget {
 }
 
 class _TrickGen extends State<TrickGenWidget> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Trick Generator'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-
-              Container (
-                margin: const EdgeInsets.all(25),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    elevation: 25,
-                    minimumSize: const Size(200, 50),
-                    maximumSize: const Size(200, 50),
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-
-                    // CURRENTLY NAVIGATES BACK TO HOME PAGE. THIS WILL NOT BE THE CASE.
-                    // THIS IS WHERE THE GENERATED TRICKS WILL SHOW UP WHEN YOU PUSH THE BUTTON!!
-
-                  },
-                  child: const Text('Generate Trick'),
-                ),
-              ),
-
-              DropdownButtonHideUnderline(
-                child: DropdownButton(
-                  
-                  hint: Text(
-                    'Select Difficulty',
-                    style: TextStyle(
-                    fontSize: 14,
-                    color: Theme
-                      .of(context)
-                      .hintColor,
-                    ),
-                  ),
-
-                  items: difficulty
-                    .map((item) =>
-                    DropdownMenuItem<String>(
-                      value: item,
-                      alignment: AlignmentDirectional.centerStart,
-                      child: Text(
-                        item,
-                        style: const TextStyle(
-                          fontSize: 14,
-                        ),
-                      ),
-                    ))
-                    .toList(),
-                  value: selectedDifficulty,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedDifficulty = value as String;
-                    });
-                  },
-                ),
-              ),
-              
-            ],
-          ), 
+        appBar: AppBar(
+          title: const Text('Trick Generator'),
         ),
-      )
-    );
-    
+        body: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: const EdgeInsets.all(25),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      elevation: 25,
+                      minimumSize: const Size(200, 50),
+                      maximumSize: const Size(200, 50),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+
+                      // CURRENTLY NAVIGATES BACK TO HOME PAGE. THIS WILL NOT BE THE CASE.
+                      // THIS IS WHERE THE GENERATED TRICKS WILL SHOW UP WHEN YOU PUSH THE BUTTON!!
+                    },
+                    child: const Text('Generate Trick'),
+                  ),
+                ),
+                DropdownButtonHideUnderline(
+                  child: DropdownButton(
+                    hint: Text(
+                      'Select Difficulty',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Theme.of(context).hintColor,
+                      ),
+                    ),
+                    items: difficulty
+                        .map((item) => DropdownMenuItem<String>(
+                              value: item,
+                              alignment: AlignmentDirectional.centerStart,
+                              child: Text(
+                                item,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ))
+                        .toList(),
+                    value: selectedDifficulty,
+                    onChanged: (value) {
+                      setState(() {
+                        selectedDifficulty = value as String;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ));
   }
 }
 /*
