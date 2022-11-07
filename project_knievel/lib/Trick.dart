@@ -5,7 +5,7 @@ class Trick {
   String description;
   int difficulty;
   String howTo;
-  //FeatureList DLL TODO
+  // Feature FeatureList;
   bool know;
   int vehicle;
 
