@@ -44,9 +44,7 @@ class TrickList {
   */
 
   // getter methods
-  String getName(String name) {
-    this.name = name;
-
+  String getName() {
     return name;
   }
 
