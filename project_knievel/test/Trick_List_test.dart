@@ -9,9 +9,15 @@ void main() {
     expect(trick.setName('Tail-whip'), equals('Tailwhip'));
   });
 
-  test('Testinf Tricklist constructor and Tricklist.getName method ', () {
+  test('Testing Tricklist constructor and Tricklist.getName method ', () {
     TrickList trick = TrickList('Tailwhip', 'ListTemp', 2, 1, 1, 1, 1, 1, 1, 1,
         1, 1); // list temp and many 1's are temp placeholders
     expect(trick.getName(), equals('Tailwhip'));
+  });
+
+  test('Testing Tricklist constructor and Tricklist.getSize method ', () {
+    TrickList trick = TrickList('Tailwhip', 'ListTemp', 2, 1, 1, 1, 1, 1, 1, 1,
+        1, 1); // list temp and many 1's are temp placeholders
+    expect(trick.getSize(), equals(2));
   });
 }

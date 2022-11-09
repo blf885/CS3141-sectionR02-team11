@@ -59,6 +59,12 @@ class TrickList {
     return oldName;
   }
 
+  int setSize(int size) {
+    int sizeSet = size;
+
+    return sizeSet;
+  }
+
   //add trick (DLL or whatever else is chosen)
   //DLL addTrick(Trick theTrick){
   //Trick trick = new Trick(theTrick);
