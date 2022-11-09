@@ -7,11 +7,9 @@ class Trick {
   String howTo;
   // Feature FeatureList;
   bool know;
-  int vehicle;
 
   // Constructor
-  Trick(this.name, this.description, this.difficulty, this.howTo, this.know,
-      this.vehicle);
+  Trick(this.name, this.description, this.difficulty, this.howTo, this.know);
 
   // -------------------------------------------------------------------------
   // Setters and getters
@@ -47,12 +45,6 @@ class Trick {
     return old;
   }
 
-  int setVehicle(int v) {
-    int old = vehicle;
-    vehicle = v;
-    return old;
-  }
-
   // Getters
   String getName() {
     return name;
@@ -74,10 +66,6 @@ class Trick {
 
   bool getKnow() {
     return know;
-  }
-
-  int getVehicle() {
-    return vehicle;
   }
 
   // TODO add addToFeatureList()

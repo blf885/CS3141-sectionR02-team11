@@ -41,13 +41,6 @@ void main() {
     expect(theTrick.setKnow(true), equals(false));
   });
 
-  // Test Trick.setVehicle
-  test('Test Trick constructor and Trick.setVehicle method', () {
-    Trick theTrick = Trick(
-        'Tailwhip', 'The deck spins around 360', 2, 'theLink.com', false, 1);
-    expect(theTrick.setVehicle(2), equals(1));
-  });
-
   // Test Trick.getName
   test('Test Trick constructor and Trick.getName method', () {
     Trick theTrick = Trick(
@@ -81,13 +74,6 @@ void main() {
     Trick theTrick = Trick(
         'Tailwhip', 'The deck spins around 360', 2, 'theLink.com', false, 1);
     expect(theTrick.getKnow(), equals(false));
-  });
-
-  // Test Trick.getVehicle
-  test('Test Trick constructor and Trick.getVehicle method', () {
-    Trick theTrick = Trick(
-        'Tailwhip', 'The deck spins around 360', 2, 'theLink.com', false, 1);
-    expect(theTrick.getVehicle(), equals(1));
   });
 
   //TODO Add the feature list method tests(x3)
