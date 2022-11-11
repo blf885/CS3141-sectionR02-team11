@@ -4,6 +4,7 @@
 // Mel was here!
 
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MaterialApp(
@@ -204,6 +205,12 @@ final List<String> difficulty = [
   'Hard',
 ];
 
+var trickList = ['A', 'B', 'C', 'D', 'C'];
+
+//final TextEditingController _controller = TextEditingController();
+
+var textTrickController = new TextEditingController();
+
 class TrickGenWidget extends StatefulWidget {
   const TrickGenWidget({super.key});
 
@@ -225,6 +232,15 @@ class _TrickGen extends State<TrickGenWidget> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                
+                Container(
+                  margin: const EdgeInsets.all(25),
+                  child: TextField(
+                    controller: textTrickController,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+
                 Container(
                   margin: const EdgeInsets.all(25),
                   child: ElevatedButton(
@@ -234,14 +250,14 @@ class _TrickGen extends State<TrickGenWidget> {
                       maximumSize: const Size(200, 50),
                     ),
                     onPressed: () {
-                      Navigator.pop(context);
 
-                      // CURRENTLY NAVIGATES BACK TO HOME PAGE. THIS WILL NOT BE THE CASE.
-                      // THIS IS WHERE THE GENERATED TRICKS WILL SHOW UP WHEN YOU PUSH THE BUTTON!!
+                      textTrickController.text = (trickList..shuffle()).first;
+                      
                     },
                     child: const Text('Generate Trick'),
                   ),
                 ),
+                
                 DropdownButtonHideUnderline(
                   child: DropdownButton(
                     hint: Text(
