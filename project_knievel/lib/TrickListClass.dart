@@ -89,5 +89,17 @@ class TrickList {
 
   // new List
 
-  List<String> trickList = List<String>.filled(150, '0', growable: true);
+  /* New growable list is created with intial length of 150 all filled with the value of zero */
+  final trickList = List<String>.filled(150, "0", growable: true);
+
+  //add trick method to add tricks to list (doesn't need to return)
+  void addTrick(String x) {
+    trickList.add(x);
+  }
+
+  // remove trick method, should return what trick we have removed
+  String removeTrick(String x) {
+    trickList.remove(x);
+    return x;
+  }
 }
