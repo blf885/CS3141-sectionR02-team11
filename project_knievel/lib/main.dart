@@ -182,8 +182,10 @@ class TrickGenerator {
   }
 
   // setter method for known
-  set setKnown(bool newKnown) {
+  bool setKnown(bool newKnown) {
+    bool temp = known;
     known = newKnown;
+    return temp;
   }
 
   // getter method for difficulty
@@ -192,8 +194,10 @@ class TrickGenerator {
   }
 
   // setter method for difficulty
-  set setDifficulty(int newDifficulty) {
-    newDifficulty = newDifficulty;
+  int setDifficulty(int newDifficulty) {
+    int temp = difficulty;
+    difficulty = newDifficulty;
+    return temp;
   }
 
   // getter method for vehicle
@@ -202,8 +206,10 @@ class TrickGenerator {
   }
 
   // setter method for vehicle
-  set setVehicle(int newVehicle) {
+  int setVehicle(int newVehicle) {
+    int temp = vehicle;
     vehicle = newVehicle;
+    return temp;
   }
 }
 
