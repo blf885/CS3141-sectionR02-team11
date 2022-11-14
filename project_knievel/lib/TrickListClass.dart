@@ -1,4 +1,7 @@
+import 'dart:core';
+
 /* This is the TrickList class including 'mandatory' parameters. */
+
 class TrickList {
   String name;
   String list; // will need to be adjucted for doubly linked list implenentation
@@ -83,4 +86,8 @@ class TrickList {
   //
   // return list;
   //}
+
+  // new List
+
+  List<String> trickList = List<String>.filled(150, '0', growable: true);
 }
