@@ -1,3 +1,4 @@
+import 'package:project_knievel/TrickList.dart';
 import 'package:test/test.dart';
 import 'package:project_knievel/Trick.dart';
 
@@ -84,4 +85,46 @@ void main() {
 
   //---------------------------------------------------------------------------
   // Feature Class Tests
+
+  // Trick List class Tests
+  test('Test Trick_List constructor and Trick_List.setName method', () {
+    TrickList trick = TrickList('Trick1', 'ListTemp',
+        2); // list temp and many 1's are temp placeholders
+    expect(trick.setName('Tailwhip'), equals('Tailwhip'));
+  });
+
+  test('Testing Tricklist constructor and Tricklist.getName method ', () {
+    TrickList trick = TrickList('Trick1', 'ListTemp',
+        2); // list temp and many 1's are temp placeholders
+    expect(trick.getName(), equals('Trick1'));
+  });
+
+  test('Testing Tricklist constructor and Tricklist.getSize method ', () {
+    TrickList trick = TrickList('Trick1', 'ListTemp',
+        2); // list temp and many 1's are temp placeholders
+    expect(trick.getSize(), equals(2));
+  });
+
+  test('Testing Tricklist constructor and Tricklist.getSize method ', () {
+    TrickList trick = TrickList('Trick1', 'ListTemp',
+        2); // list temp and many 1's are temp placeholders
+    expect(trick.setSize(2), equals(2));
+  });
+
+  // TODO: Re-check
+  test('Testing TrickList add method', () {
+    TrickList trick = TrickList('Trick1', 'ListTemp',
+        2); // list temp and many 1's are temp placeholders
+    Trick c = Trick("Tailwhip", "360 of deck", 1, "thelink.com", true);
+    Trick X = Trick("Tailwhip", "360 of deck", 1, "thelink.com", true);
+    expect(trick.addTrick(c), equals(X));
+  });
+
+  test('Testing TrickList add method', () {
+    TrickList trick = TrickList('Trick1', 'ListTemp',
+        2); // list temp and many 1's are temp placeholders
+    Trick c = Trick("Tailwhip", "360 of deck", 1, "thelink.com", true);
+    Trick X = Trick("Tailwhip", "360 of deck", 1, "thelink.com", true);
+    expect(trick.removeTrick(c), equals(X));
+  });
 }
