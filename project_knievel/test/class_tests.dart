@@ -5,42 +5,6 @@ void main() {
   //---------------------------------------------------------------------------
   // Trick Class Tests
 
-  // Test Trick.setName
-  test('Test Trick constructor and Trick.setName method', () {
-    Trick theTrick =
-        Trick('Tailwhip', 'The deck spins around 360', 1, 'theLink.com', true);
-    expect(theTrick.setName('Tail-whip'), equals('Tailwhip'));
-  });
-
-  // Test Trick.setDesciption
-  test('Test Trick constructor and Trick.setDesciption method', () {
-    Trick theTrick =
-        Trick('Tailwhip', 'The deck spins around 360', 1, 'theLink.com', true);
-    expect(theTrick.setDescription('The deck is kicked around 360'),
-        equals('The deck spins around 360'));
-  });
-
-  // Test Trick.setDifficulty
-  test('Test Trick constructor and Trick.setDifficulty method', () {
-    Trick theTrick =
-        Trick('Tailwhip', 'The deck spins around 360', 2, 'theLink.com', true);
-    expect(theTrick.setDifficulty(2), equals(2));
-  });
-
-  // Test Trick.setHowTo
-  test('Test Trick constructor and Trick.setHowTo method', () {
-    Trick theTrick =
-        Trick('Tailwhip', 'The deck spins around 360', 2, 'theLink.com', true);
-    expect(theTrick.setHowTo('theNewLink.com'), equals('theLink.com'));
-  });
-
-  // Test Trick.setKnow
-  test('Test Trick constructor and Trick.setKnow method', () {
-    Trick theTrick =
-        Trick('Tailwhip', 'The deck spins around 360', 2, 'theLink.com', false);
-    expect(theTrick.setKnow(true), equals(false));
-  });
-
   // Test Trick.getName
   test('Test Trick constructor and Trick.getName method', () {
     Trick theTrick =
@@ -74,6 +38,46 @@ void main() {
     Trick theTrick =
         Trick('Tailwhip', 'The deck spins around 360', 2, 'theLink.com', false);
     expect(theTrick.getKnow(), equals(false));
+  });
+
+  // Test Trick.setName
+  test('Test Trick constructor and Trick.setName method', () {
+    Trick theTrick =
+        Trick('Tailwhip', 'The deck spins around 360', 1, 'theLink.com', true);
+    theTrick.setName('Tail-whip');
+    expect(theTrick.getName(), equals('Tail-whip'));
+  });
+
+  // Test Trick.setDesciption
+  test('Test Trick constructor and Trick.setDesciption method', () {
+    Trick theTrick =
+        Trick('Tailwhip', 'The deck spins around 360', 1, 'theLink.com', true);
+    theTrick.setDescription('The deck is kicked around 360');
+    expect(theTrick.getDescription(), equals('The deck is kicked around 360'));
+  });
+
+  // Test Trick.setDifficulty
+  test('Test Trick constructor and Trick.setDifficulty method', () {
+    Trick theTrick =
+        Trick('Tailwhip', 'The deck spins around 360', 2, 'theLink.com', true);
+    theTrick.setDifficulty(1);
+    expect(theTrick.getDifficulty(), equals(1));
+  });
+
+  // Test Trick.setHowTo
+  test('Test Trick constructor and Trick.setHowTo method', () {
+    Trick theTrick =
+        Trick('Tailwhip', 'The deck spins around 360', 2, 'theLink.com', true);
+    theTrick.setHowTo('theNewLink.com');
+    expect(theTrick.getHowTo(), equals('theNewLink.com'));
+  });
+
+  // Test Trick.setKnow
+  test('Test Trick constructor and Trick.setKnow method', () {
+    Trick theTrick =
+        Trick('Tailwhip', 'The deck spins around 360', 2, 'theLink.com', false);
+    theTrick.setKnow(true);
+    expect(theTrick.getKnow(), equals(true));
   });
 
   //TODO Add the feature list method tests(x3)
