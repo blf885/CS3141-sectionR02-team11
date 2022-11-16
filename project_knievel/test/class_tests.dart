@@ -86,6 +86,7 @@ void main() {
   //---------------------------------------------------------------------------
   // Feature Class Tests
 
+  //---------------------------------------------------------------------------
   // Trick List class Tests
   test('Test Trick_List constructor and Trick_List.setName method', () {
     TrickList trick = TrickList('Trick1', 'ListTemp',
