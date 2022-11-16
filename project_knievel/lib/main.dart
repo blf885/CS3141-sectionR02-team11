@@ -2,7 +2,6 @@
 // Logan was here!
 // Preston was here!
 // Mel was here!
-// Kelby was here!
 
 import 'package:flutter/material.dart';
 import 'dart:math';
@@ -188,42 +187,6 @@ class TrickGenerator {
       {required this.known, required this.vehicle});
 
 */
-
-  // getter method for known
-  bool get getKnown {
-    return known;
-  }
-
-  // setter method for known
-  bool setKnown(bool newKnown) {
-    bool temp = known;
-    known = newKnown;
-    return temp;
-  }
-
-  // getter method for difficulty
-  int get getDifficulty {
-    return difficulty;
-  }
-
-  // setter method for difficulty
-  int setDifficulty(int newDifficulty) {
-    int temp = difficulty;
-    difficulty = newDifficulty;
-    return temp;
-  }
-
-  // getter method for vehicle
-  int get getVehicle {
-    return vehicle;
-  }
-
-  // setter method for vehicle
-  int setVehicle(int newVehicle) {
-    int temp = vehicle;
-    vehicle = newVehicle;
-    return temp;
-  }
 }
 
 // Trick class
