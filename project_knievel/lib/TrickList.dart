@@ -1,36 +1,23 @@
 import 'dart:core';
+import 'package:project_knievel/Trick.dart';
 
 /* This is the TrickList class including 'mandatory' parameters. */
 
 class TrickList {
-  String name;
-  String list; // will need to be adjucted for doubly linked list implenentation
-  int size;
-  int begScooterSize;
-  int begSkateSize;
-  int begBikeSize;
-  int intScooterSize;
-  int intBikeSize;
-  int intSkateSize;
-  int expScooterSize;
-  int expSkateSize;
-  int expBikeSize;
+  String name = "";
+  //Trick trick;
+  String list = "";
+  //final trickList; // will need to be adjucted for doubly linked list implenentation
+  int size = 0;
 
   //Constructor method
-  TrickList(
-      this.name,
-      this.list,
-      this.size,
-      this.begScooterSize,
-      this.begBikeSize,
-      this.begSkateSize,
-      this.expBikeSize,
-      this.expScooterSize,
-      this.expSkateSize,
-      this.intBikeSize,
-      this.intScooterSize,
-      this.intSkateSize);
-
+  TrickList(String name, String list, int size) {
+    this.name = name;
+    this.list = list;
+    //this.trick,
+    // this.trickList,
+    this.size = size;
+  }
   // this constructor requires the name, the size
   /*
     TrickList( this.list,
@@ -69,16 +56,22 @@ class TrickList {
   }
 
   /* New growable list is created with intial length of 150 all filled with the value of zero */
-  final trickList = List<String>.filled(150, "0", growable: true);
+  // TODO
+  final trickList = List<Trick>.filled(
+      150, Trick("Tailwhip", "360 of deck", 1, "thelink.com", true),
+      growable: true);
 
   //add trick method to add tricks to list (doesn't need to return)
-  void addTrick(String x) {
+  Trick addTrick(Trick x) {
     trickList.add(x);
+
+    return x;
   }
 
   // remove trick method, should return what trick we have removed
-  String removeTrick(String x) {
+  Trick removeTrick(Trick x) {
     trickList.remove(x);
+
     return x;
   }
 }
