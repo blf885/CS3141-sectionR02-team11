@@ -15,6 +15,7 @@ void main() {
 
 int vehicleChoice = 0;
 var textTrickController = TextEditingController();
+String vehicleText = '';
 
 class ChooseVehicle extends StatelessWidget {
   const ChooseVehicle({super.key});
@@ -23,8 +24,16 @@ class ChooseVehicle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff220901),
       appBar: AppBar(
-        title: const Text('Project Knievel'),
+        centerTitle: true,
+        backgroundColor: const Color(0xff941B0C),
+        title: const Text(
+          'Project Knievel',
+          style: TextStyle(
+            color: Color(0xffffffff),
+            fontWeight: FontWeight.bold),
+        ),
       ),
       body: Padding(
           padding: const EdgeInsets.all(15),
@@ -38,7 +47,13 @@ class ChooseVehicle extends StatelessWidget {
                         const TextStyle(fontSize: 20, color: Colors.black),
                   ),
                   onPressed: null,
-                  child: const Text('Choose a Vehicle'),
+                  child: const Text(
+                    'Choose a Vehicle',
+                    style: TextStyle(
+                      color: Color(0xffBC3908),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
                 Container(
                   margin: const EdgeInsets.all(25),
@@ -47,10 +62,18 @@ class ChooseVehicle extends StatelessWidget {
                       elevation: 25,
                       minimumSize: const Size(200, 50),
                       maximumSize: const Size(200, 50),
+                      backgroundColor: const Color(0xff941B0C),
                     ),
-                    child: const Text("Skateboard"),
+                    child: const Text(
+                      "Skateboard",
+                      style: TextStyle(
+                        color: Color(0xffffffff),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     onPressed: () {
                       vehicleChoice = 1;
+                      vehicleText = "Skateboard";
                       textTrickController.text = "";
 
                       Navigator.push(
@@ -68,10 +91,18 @@ class ChooseVehicle extends StatelessWidget {
                       elevation: 25,
                       minimumSize: const Size(200, 50),
                       maximumSize: const Size(200, 50),
+                      backgroundColor: const Color(0xff941B0C),
                     ),
-                    child: const Text("Scooter"),
+                    child: const Text(
+                      "Scooter",
+                      style: TextStyle(
+                        color: Color(0xffffffff),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     onPressed: () {
                       vehicleChoice = 2;
+                      vehicleText = "Scooter";
                       textTrickController.text = "";
 
                       Navigator.push(
@@ -89,10 +120,18 @@ class ChooseVehicle extends StatelessWidget {
                       elevation: 25,
                       minimumSize: const Size(200, 50),
                       maximumSize: const Size(200, 50),
+                      backgroundColor: const Color(0xff941B0C),
                     ),
-                    child: const Text("Bike"),
+                    child: const Text(
+                      "Bike",
+                      style: TextStyle(
+                        color: Color(0xffffffff),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     onPressed: () {
                       vehicleChoice = 3;
+                      vehicleText = "Bike";
                       textTrickController.text = "";
 
                       Navigator.push(
@@ -217,9 +256,38 @@ final List<String> difficulty = [
   'Hard',
 ];
 
-var trickListSkateboard = ['A', 'B', 'C', 'D', 'E'];
-var trickListScooter = ['F', 'G', 'H', 'I', 'J'];
-var trickListBike = ['K', 'L', 'M', 'N', 'O'];
+var trickListSkateboard = ['Manual', 'Switch', 'Ollie', 'Kickflip', 'Schuvvit', 'Nose Stall', 'Tray Flip', 'Hard Flip', 'Backside 180'];
+var trickListScooter = ['Tail Whip', 'Bar Spin', 'Heal Whip', 'Finger Whip', 'Tail Whip Rewind', 'Turn Down', 'Bri Flip', 'Inward Bri Flip', 'Back Flip'];
+var trickListBike = ['Bunny Hop', 'Manual', 'Air', 'Bar Spin', '360', 'Crank Flip', 'Toboggan', 'X-Up', 'Tail Whip'];
+
+class ViewTrickWidget extends StatefulWidget {
+  const ViewTrickWidget({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _ViewTrick createState() => _ViewTrick();
+}
+
+class _ViewTrick extends State<ViewTrickWidget> {
+  String viewTrickName = textTrickController.text;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xff220901),
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: const Color(0xff941B0C),
+        title: Text(
+          'View Trick: $viewTrickName',
+          style: const TextStyle(
+            color: Color(0xffffffff),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 class TrickGenWidget extends StatefulWidget {
   const TrickGenWidget({super.key});
@@ -233,8 +301,14 @@ class _TrickGen extends State<TrickGenWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff220901),
         appBar: AppBar(
-          title: const Text('Trick Generator'),
+          centerTitle: true,
+          backgroundColor: const Color(0xff941B0C),
+          title: const Text(
+            'Trick Generator',
+            style: TextStyle(color: Color(0xffffffff)),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(15),
@@ -242,12 +316,46 @@ class _TrickGen extends State<TrickGenWidget> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                
+
                 Container(
                   margin: const EdgeInsets.all(25),
-                  child: TextField(
-                    controller: textTrickController,
-                    textAlign: TextAlign.center,
+                  child: Text(
+                    vehicleText,
+                    style: const TextStyle(
+                      color: Color(0xffBC3908),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+
+                Container(
+                  margin: const EdgeInsets.all(25),
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      minimumSize: const Size(200, 50),
+                      maximumSize: const Size(200, 50),
+                      backgroundColor: const Color(0xff941B0C),
+                    ),
+                      onPressed: () { 
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ViewTrickWidget()),
+                        );
+                      },
+                      child: TextField(
+                        enabled: false,
+                        controller: textTrickController,
+                        textAlign: TextAlign.center,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                        ),
+                        style: const TextStyle(
+                          color: Color(0xffffffff),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                   ),
                 ),
 
@@ -258,6 +366,7 @@ class _TrickGen extends State<TrickGenWidget> {
                       elevation: 25,
                       minimumSize: const Size(200, 50),
                       maximumSize: const Size(200, 50),
+                      backgroundColor: const Color(0xff941B0C),
                     ),
                     onPressed: () {
 
@@ -272,18 +381,32 @@ class _TrickGen extends State<TrickGenWidget> {
                       }
 
                     },
-                    child: const Text('Generate Trick'),
+                    child: const Text(
+                      'Generate Trick',
+                      style: TextStyle(
+                        color: Color(0xffffffff),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
                 
                 DropdownButtonHideUnderline(
                   child: DropdownButton(
+                    dropdownColor: const Color(0xff941B0C),
+                    // ignore: prefer_const_constructors
                     hint: Text(
                       'Select Difficulty',
-                      style: TextStyle(
+                      style: const TextStyle(
+                        color: Color(0xffffffff),
                         fontSize: 14,
-                        color: Theme.of(context).hintColor,
+                        fontWeight: FontWeight.bold,
                       ),
+                    ),
+                    // ignore: prefer_const_constructors
+                    icon: Icon(
+                      Icons.arrow_drop_down,
+                      color: const Color(0xffffffff),
                     ),
                     items: difficulty
                         .map((item) => DropdownMenuItem<String>(
@@ -292,7 +415,9 @@ class _TrickGen extends State<TrickGenWidget> {
                               child: Text(
                                 item,
                                 style: const TextStyle(
+                                  color: Color(0xffffffff),
                                   fontSize: 14,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ))
@@ -308,6 +433,7 @@ class _TrickGen extends State<TrickGenWidget> {
               ],
             ),
           ),
-        ));
+        )
+      );
   }
 }
