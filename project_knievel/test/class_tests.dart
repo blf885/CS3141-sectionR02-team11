@@ -88,44 +88,38 @@ void main() {
 
   //---------------------------------------------------------------------------
   // Trick List class Tests
-  test('Test Trick_List constructor and Trick_List.setName method', () {
-    TrickList scooterList = TrickList('Bike List', 'ListTemp',
-        2); // list temp and many 1's are temp placeholders
-    expect(scooterList.setName('Scooter List'), equals('Scooter List'));
-  });
 
-  test('Testing Tricklist constructor and Tricklist.getName method ', () {
-    TrickList scooterList = TrickList('Scooter List', 'ListTemp',
-        2); // list temp and many 1's are temp placeholders
-    expect(scooterList.getName(), equals('Scooter List'));
+  test('Testing Tricklist constructor and Tricklist.getSize method ', () {
+    TrickList scooterList =
+        TrickList(); // list temp and many 1's are temp placeholders
+    expect(scooterList.getSize(), equals(0));
   });
 
   test('Testing Tricklist constructor and Tricklist.getSize method ', () {
-    TrickList scooterList = TrickList('Scooter List', 'ListTemp',
-        2); // list temp and many 1's are temp placeholders
-    expect(scooterList.getSize(), equals(2));
-  });
-
-  test('Testing Tricklist constructor and Tricklist.setSize method ', () {
-    TrickList scooterList = TrickList('Scooter List', 'ListTemp',
-        3); // list temp and many 1's are temp placeholders
-    expect(scooterList.setSize(2), equals(2));
-  });
-
-  // TODO: Re-check
-  test('Testing TrickList add method', () {
-    TrickList scooterList = TrickList('Scooter List', 'ListTemp',
-        2); // list temp and many 1's are temp placeholders
+    TrickList scooterList =
+        TrickList(); // list temp and many 1's are temp placeholders
     Trick c = Trick("Tailwhip", "360 of deck", 1, "thelink.com", true);
-    Trick X = Trick("Tailwhip", "360 of deck", 1, "thelink.com", true);
-    expect(scooterList.addTrick(c), equals(c));
+    scooterList.addTrick(c);
+    expect(scooterList.getSize(), equals(1));
   });
 
-  test('Testing TrickList add method', () {
-    TrickList scooterList = TrickList('Scooter List', 'ListTemp',
-        2); // list temp and many 1's are temp placeholders
+  test('Testing Tricklist.addTrick method and getList', () {
+    TrickList scooterList =
+        TrickList(); // list temp and many 1's are temp placeholders
     Trick c = Trick("Tailwhip", "360 of deck", 1, "thelink.com", true);
-    Trick X = Trick("Tailwhip", "360 of deck", 1, "thelink.com", true);
-    expect(scooterList.removeTrick(c), equals(c));
+    scooterList.addTrick(c);
+    List<Trick> sL = List.castFrom<dynamic, Trick>(scooterList.getList());
+    expect(sL.first.getName(), equals("Tailwhip"));
+  });
+
+  test('Testing Tricklist.addTrick method and getList', () {
+    TrickList scooterList =
+        TrickList(); // list temp and many 1's are temp placeholders
+    Trick c = Trick("Tailwhip", "360 of deck", 1, "thelink.com", true);
+    Trick x = Trick("Barspin", "360 of bars", 1, "thelink.com", true);
+    scooterList.addTrick(c);
+    scooterList.addTrick(x);
+    List<Trick> sL = List.castFrom<dynamic, Trick>(scooterList.getList());
+    expect(sL.last.getName(), equals("Barspin"));
   });
 }
