@@ -170,20 +170,6 @@ var trickListSkateboard = [
   'Backside 180'
 ];
 
-/*
-var trickListScooter = [
-  'Tail Whip',
-  'Bar Spin',
-  'Heal Whip',
-  'Finger Whip',
-  'Tail Whip Rewind',
-  'Turn Down',
-  'Bri Flip',
-  'Inward Bri Flip',
-  'Back Flip'
-];
-*/
-
 var trickListBike = [
   'Bunny Hop',
   'Manual',
