@@ -4,6 +4,8 @@
 // Mel was here!
 
 import 'package:flutter/material.dart';
+import 'package:project_knievel/Trick.dart';
+import 'package:project_knievel/TrickList.dart';
 import 'dart:math';
 
 void main() {
@@ -30,9 +32,8 @@ class ChooseVehicle extends StatelessWidget {
         backgroundColor: const Color(0xff941B0C),
         title: const Text(
           'Project Knievel',
-          style: TextStyle(
-            color: Color(0xffffffff),
-            fontWeight: FontWeight.bold),
+          style:
+              TextStyle(color: Color(0xffffffff), fontWeight: FontWeight.bold),
         ),
       ),
       body: Padding(
@@ -149,105 +150,6 @@ class ChooseVehicle extends StatelessWidget {
   }
 }
 
-/* This is the TrickList Constructor including 'mandatory' parameters. */
-class TrickList {
-  String name;
-  String list; // will need to be adjucted for doubly linked list implenentation
-  int size;
-  int begScooterSize;
-  int begSkateSize;
-  int begBikeSize;
-  int intScooterSize;
-  int intBikeSize;
-  int intSkateSize;
-  int expScooterSize;
-  int expSkateSize;
-  int expBikeSize;
-
-  TrickList(
-      this.name,
-      this.list,
-      this.size,
-      this.begScooterSize,
-      this.begBikeSize,
-      this.begSkateSize,
-      this.expBikeSize,
-      this.expScooterSize,
-      this.expSkateSize,
-      this.intBikeSize,
-      this.intScooterSize,
-      this.intSkateSize);
-
-  // this constructor requires the name, the size
-  /*
-    TrickList( this.list,
-      this.size,
-      this.begScooterSize,
-      this.begBikeSize,
-      this.begSkateSize,
-      this.expBikeSize,
-      this.expScooterSize,
-      this.expSkateSize,
-      this.intBikeSize,
-      this.intScooterSize,
-      this.intSkateSize, {required this.name});
-  */
-}
-
-// Feature class constructor
-class Feature {
-  String name;
-  String description;
-  String trickList; // will need to be adjusted to doubly linked list
-  bool availability;
-
-  Feature(this.availability, this.description, this.name, this.trickList);
-
-  // this constructor requires the name of the feature
-  /*
-    Feature(this.availability, this.description. this.trickList, {required this.name});
-  */
-
-}
-
-// Trick Generator constructor to initialize paramenters for this class
-class TrickGenerator {
-  bool known;
-  int difficulty;
-  int vehicle;
-  String
-      featureList; // will need to be adjusted for doubly linked list implementation
-
-  TrickGenerator(this.difficulty, this.featureList, this.known, this.vehicle);
-
-// this constructor requires the 'known' and the 'vehicle' type parameters to be entered. All others are optional
-/*
-  TrickGenerator(this.difficulty, this.featureList,
-      {required this.known, required this.vehicle});
-
-*/
-}
-
-// Trick class
-class Trick {
-  String name;
-  String description;
-  int difficulty;
-  String howTo;
-  String featureList; // will be adjucted to doubly linked list implementation
-  int vehicle;
-
-  Trick(this.description, this.difficulty, this.featureList, this.howTo,
-      this.name, this.vehicle);
-
-// this constructor requires name and vehcle type for this class but others are optional (Can be uncommented)
-/*
-  Trick(this.description, this.difficulty, this.featureList, this.howTo,
-      {required this.name, required this.vehicle});
- */
-
-}
-
 String? selectedDifficulty;
 
 final List<String> difficulty = [
@@ -256,9 +158,29 @@ final List<String> difficulty = [
   'Hard',
 ];
 
-var trickListSkateboard = ['Manual', 'Switch', 'Ollie', 'Kickflip', 'Schuvvit', 'Nose Stall', 'Tray Flip', 'Hard Flip', 'Backside 180'];
-var trickListScooter = ['Tail Whip', 'Bar Spin', 'Heal Whip', 'Finger Whip', 'Tail Whip Rewind', 'Turn Down', 'Bri Flip', 'Inward Bri Flip', 'Back Flip'];
-var trickListBike = ['Bunny Hop', 'Manual', 'Air', 'Bar Spin', '360', 'Crank Flip', 'Toboggan', 'X-Up', 'Tail Whip'];
+var trickListSkateboard = [
+  'Manual',
+  'Switch',
+  'Ollie',
+  'Kickflip',
+  'Schuvvit',
+  'Nose Stall',
+  'Tray Flip',
+  'Hard Flip',
+  'Backside 180'
+];
+
+var trickListBike = [
+  'Bunny Hop',
+  'Manual',
+  'Air',
+  'Bar Spin',
+  '360',
+  'Crank Flip',
+  'Toboggan',
+  'X-Up',
+  'Tail Whip'
+];
 
 class ViewTrickWidget extends StatefulWidget {
   const ViewTrickWidget({super.key});
@@ -301,7 +223,7 @@ class _TrickGen extends State<TrickGenWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff220901),
+        backgroundColor: const Color(0xff220901),
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: const Color(0xff941B0C),
@@ -316,7 +238,6 @@ class _TrickGen extends State<TrickGenWidget> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
                 Container(
                   margin: const EdgeInsets.all(25),
                   child: Text(
@@ -328,7 +249,6 @@ class _TrickGen extends State<TrickGenWidget> {
                     ),
                   ),
                 ),
-
                 Container(
                   margin: const EdgeInsets.all(25),
                   child: OutlinedButton(
@@ -337,28 +257,27 @@ class _TrickGen extends State<TrickGenWidget> {
                       maximumSize: const Size(200, 50),
                       backgroundColor: const Color(0xff941B0C),
                     ),
-                      onPressed: () { 
-                        Navigator.push(
+                    onPressed: () {
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const ViewTrickWidget()),
-                        );
-                      },
-                      child: TextField(
-                        enabled: false,
-                        controller: textTrickController,
-                        textAlign: TextAlign.center,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                        ),
-                        style: const TextStyle(
-                          color: Color(0xffffffff),
-                          fontWeight: FontWeight.bold,
-                        ),
+                      );
+                    },
+                    child: TextField(
+                      enabled: false,
+                      controller: textTrickController,
+                      textAlign: TextAlign.center,
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
                       ),
+                      style: const TextStyle(
+                        color: Color(0xffffffff),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
-
                 Container(
                   margin: const EdgeInsets.all(25),
                   child: ElevatedButton(
@@ -369,17 +288,98 @@ class _TrickGen extends State<TrickGenWidget> {
                       backgroundColor: const Color(0xff941B0C),
                     ),
                     onPressed: () {
-
                       if (vehicleChoice == 1) {
-                        textTrickController.text = (trickListSkateboard..shuffle()).first;
-                      }
-                      else if (vehicleChoice == 2) {
-                        textTrickController.text = (trickListScooter..shuffle()).first;
-                      }
-                      else if (vehicleChoice == 3) {
-                        textTrickController.text = (trickListBike..shuffle()).first;
-                      }
+                        textTrickController.text =
+                            (trickListSkateboard..shuffle()).first;
+                      } else if (vehicleChoice == 2) {
+                        // Create the scooter list
+                        TrickList scooterList = TrickList();
 
+                        // Create a tricks to add and add them
+                        Trick trick1 = Trick(
+                            "Tail whip",
+                            "While jumping in the air kick the deck with your back foot and have it rotate 360 degrees around in the direction of your heels.",
+                            1,
+                            "https://www.youtube.com/watch?v=4OB8jE99wms",
+                            false);
+
+                        scooterList.addTrick(trick1);
+                        trick1 = Trick(
+                            "Bar Spin",
+                            "While jumping in the air, let go of the handlebar with one hand and use the other hand to spin the handlebars around 360 degrees and then catch the handlebars before landing.",
+                            1,
+                            "https://www.youtube.com/watch?v=5-DLsXhFbb8",
+                            false);
+
+                        scooterList.addTrick(trick1);
+                        trick1 = Trick(
+                            "Heel Whip",
+                            "While jumping in the air kick the deck with your back foot and have it rotate 360 degrees around in the direction of your toes(the opposite direction of a tailwhip).",
+                            1,
+                            "https://www.youtube.com/watch?v=d3zPXAet52s",
+                            false);
+
+                        scooterList.addTrick(trick1);
+                        trick1 = Trick(
+                            "Finger Whip",
+                            "While jumping in the air, let go of the scooter with one hand and lift the scooter up between your legs. Use your hand to push the deck around 360 degrees similar to a tailwhip. ",
+                            2,
+                            "https://www.youtube.com/watch?v=svvamvVHVTA",
+                            false);
+
+                        scooterList.addTrick(trick1);
+                        trick1 = Trick(
+                            "Tail Whip Rewind",
+                            "Perform a tail whip, but instead catching the deck with your back foot, kick the deck so it rotates back around 360 degrees in the opposite direction.",
+                            2,
+                            "https://www.youtube.com/watch?v=0vwdmHxyIOI",
+                            false);
+
+                        scooterList.addTrick(trick1);
+                        trick1 = Trick(
+                            "Turn Down",
+                            "While jumping in the air, keep both feet on the deck and both hands on the handlebars but rotate the bars 180 degrees and at the same time the deck 180 degrees. Your body should twist around the scooter a little. ",
+                            2,
+                            "https://www.youtube.com/watch?v=nZnnn2NvHKs",
+                            false);
+
+                        scooterList.addTrick(trick1);
+                        trick1 = Trick(
+                            "Bri Flip",
+                            "While jumping in the air, swing the whole scooter deck out in front of you and up above your head and then bring it back down under your feet. ",
+                            3,
+                            "https://www.youtube.com/watch?v=3GBW0-fN6dk",
+                            false);
+
+                        scooterList.addTrick(trick1);
+                        trick1 = Trick(
+                            "Inward Bri Flip",
+                            "This is similar to a bri flip except instead of the scooter flipping out in front of you, you flip the scooter in the opposite direction, over your shoulder. ",
+                            3,
+                            "https://www.youtube.com/watch?v=nZnnn2NvHKs",
+                            false);
+
+                        scooterList.addTrick(trick1);
+                        trick1 = Trick(
+                            "Turn Down",
+                            "While jumping in the air, keep both feet on the deck and both hands on the handlebars but rotate the bars 180 degrees and at the same time the deck 180 degrees. Your body should twist around the scooter a little. ",
+                            3,
+                            "https://www.youtube.com/watch?v=jq8QxjuiEFQ",
+                            false);
+
+                        scooterList.addTrick(trick1);
+
+                        // Get the actual list from the scooterList object
+                        List<Trick> trickListScooter =
+                            List.castFrom<dynamic, Trick>(
+                                scooterList.getList());
+
+                        textTrickController.text =
+                            (trickListScooter..shuffle()).first.getName();
+                      } else if (vehicleChoice == 3) {
+                        textTrickController.text =
+                            (trickListBike..shuffle()).first;
+                      }
                     },
                     child: const Text(
                       'Generate Trick',
@@ -390,7 +390,6 @@ class _TrickGen extends State<TrickGenWidget> {
                     ),
                   ),
                 ),
-                
                 DropdownButtonHideUnderline(
                   child: DropdownButton(
                     dropdownColor: const Color(0xff941B0C),
@@ -433,7 +432,6 @@ class _TrickGen extends State<TrickGenWidget> {
               ],
             ),
           ),
-        )
-      );
+        ));
   }
 }
