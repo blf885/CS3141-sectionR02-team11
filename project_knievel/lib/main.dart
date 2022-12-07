@@ -4,6 +4,8 @@
 // Mel was here!
 
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
+
 import 'package:project_knievel/Trick.dart';
 import 'package:project_knievel/TrickList.dart';
 
@@ -16,63 +18,63 @@ TrickList scooterList = TrickList();
                             "Tail Whip",
                             "While jumping in the air, kick the deck with your back foot and have it rotate 360 degrees around in the direction of your heels.",
                             1,
-                            "https://www.youtube.com/watch?v=4OB8jE99wms",
+                            "https://cdn.discordapp.com/attachments/1049969501342547978/1049969571408384040/Y2Mate.is_-_How_to_Tailwhip_on_a_ScooterEASIEST__FASTEST_WAY-4OB8jE99wms-240p-1654088816481.mp4",
                             false);
 
                         Trick barSpin = Trick(
                             "Bar Spin",
                             "While jumping in the air, let go of the handlebar with one hand and use the other hand to spin the handlebars around 360 degrees and then catch the handlebars before landing.",
                             1,
-                            "https://www.youtube.com/watch?v=5-DLsXhFbb8",
+                            "https://cdn.discordapp.com/attachments/1049969501342547978/1049971487311937576/Y2Mate.is_-_How_to_Barspin_a_Scooter_2020-5-DLsXhFbb8-240p-1654089014793.mp4",
                             false);
 
                         Trick heelWhip = Trick(
                             "Heel Whip",
                             "While jumping in the air, kick the deck with your back foot and have it rotate 360 degrees around in the direction of your toes (the opposite direction of a tailwhip).",
                             1,
-                            "https://www.youtube.com/watch?v=d3zPXAet52s",
+                            "https://cdn.discordapp.com/attachments/1049969501342547978/1049971559948886016/Y2Mate.is_-_HOW_TO_HEEL_WHIP-d3zPXAet52s-240p-1654088973211.mp4",
                             false);
 
                         Trick fingerWhip = Trick(
                             "Finger Whip",
                             "While jumping in the air, let go of the scooter with one hand and lift the scooter up between your legs. Use your hand to push the deck around 360 degrees similar to a tailwhip.",
                             2,
-                            "https://www.youtube.com/watch?v=svvamvVHVTA",
+                            "https://cdn.discordapp.com/attachments/1049969501342547978/1049972018667339817/Y2Mate.is_-_How_to_Fingerwhip_on_a_ScooterEASIEST__FASTEST_WAY-svvamvVHVTA-144p-1656366729245_1.mp4",
                             false);
 
                         Trick tailWhipRewind = Trick(
                             "Tail Whip Rewind",
                             "Perform a tail whip, but instead of catching the deck with your back foot, kick the deck so it rotates back around 360 degrees in the opposite direction.",
                             2,
-                            "https://www.youtube.com/watch?v=0vwdmHxyIOI",
+                            "https://cdn.discordapp.com/attachments/1049969501342547978/1049972446574411838/Y2Mate.is_-_How_to_Tailwhip_Rewind_on_a_Scooter_EASY__SIMPLE-0vwdmHxyIOI-144p-1654089039613_1.mp4",
                             false);
 
                         Trick turnDown = Trick(
                             "Turn Down",
                             "While jumping in the air, keep both feet on the deck and both hands on the handlebars but rotate the bars 180 degrees and at the same time the deck 180 degrees. Your body should twist around the scooter a little.",
                             2,
-                            "https://www.youtube.com/watch?v=nZnnn2NvHKs",
+                            "https://cdn.discordapp.com/attachments/1049969501342547978/1049972800447860747/Y2Mate.is_-_How_to_Turndown_on_a_Scooter-nZnnn2NvHKs-480p-1654089137447_1.mp4",
                             false);
 
                         Trick briFlip = Trick(
                             "Bri Flip",
                             "While jumping in the air, swing the whole scooter deck out in front of you and up above your head and then bring it back down under your feet.",
                             3,
-                            "https://www.youtube.com/watch?v=3GBW0-fN6dk",
+                            "https://cdn.discordapp.com/attachments/1049969501342547978/1049973285871419463/Y2Mate.is_-_HOW_TO_BRI_FLIP_ON_A_SCOOTERBeginner_Tutorial-3GBW0-fN6dk-144p-1654088966242_1.mp4",
                             false);
 
                         Trick inwardBriFlip = Trick(
                             "Inward Bri Flip",
                             "This is similar to a Bri Flip except instead of the scooter flipping out in front of you, you flip the scooter in the opposite direction and over your shoulder.",
                             3,
-                            "https://www.youtube.com/watch?v=nZnnn2NvHKs",
+                            "https://cdn.discordapp.com/attachments/1049969501342547978/1049973347137630208/Y2Mate.is_-_HOW_TO_INWARD_BRI_-_SCOOTER_TRICK_TIPS-jq8QxjuiEFQ-144p-1654898335296.mp4",
                             false);
 
                         Trick backFlip = Trick(
                             "Back Flip",
                             "While jumping in the air, throw your head up and backwards and pull the scooter around over your body. Your whole body should rotate, head over heels. Spot the landing, and bring your deck back between you and the ground.",
                             3,
-                            "https://www.youtube.com/watch?v=CoH1pJL3Z7s",
+                            "https://cdn.discordapp.com/attachments/1049969501342547978/1049974287865487370/Y2Mate.is_-_How_to_Backflip_on_a_Scooter_EASY__SIMPLE-CoH1pJL3Z7s-144p-1654089063666_1.mp4",
                             false);
 
 // Get the actual list from the scooterList object
@@ -314,6 +316,22 @@ class ViewTrickWidget extends StatefulWidget {
 }
 
 class _ViewTrick extends State<ViewTrickWidget> {
+  late VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.network(trickVideo)..initialize().then((_) {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -337,22 +355,49 @@ class _ViewTrick extends State<ViewTrickWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
 
-              Container(
-                width: 250,
-                height: 100,
-                margin: const EdgeInsets.all(15),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    trickVideo,
-                    overflow: TextOverflow.clip,
-                    style: const TextStyle(
-                      color: Color(0xffBC3908),
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
+              Column (
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+
+                  Container(
+                    color: const Color.fromARGB(255, 83, 28, 9),
+                    child: Container(
+                      width: 500,
+                      margin: const EdgeInsets.all(10),
+                      child: _controller.value.isInitialized ? AspectRatio(
+                        aspectRatio: _controller.value.aspectRatio,
+                        child: Stack (
+                          alignment: Alignment.bottomCenter,
+                          
+                          children: [ 
+                            VideoPlayer(_controller),
+                            VideoProgressIndicator(
+                              _controller, 
+                              allowScrubbing: true, 
+                              padding: const EdgeInsets.all(5),
+                              colors: const VideoProgressColors(playedColor: Color(0xff941B0C))),
+                          ],
+                        ),
+                      )
+                      : Container()
                     ),
                   ),
-                ),
+
+                  Container(
+                    margin: const EdgeInsets.all(15),
+                    child: FloatingActionButton(
+                      backgroundColor: const Color(0xff941B0C),
+                      onPressed: () {
+                        setState(() {
+                          _controller.value.isPlaying ? _controller.pause() : _controller.play();
+                        });
+                      },
+                      child: Icon(
+                        _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                      ),
+                    ),
+                  ),
+                ],
               ),
 
               Container(
