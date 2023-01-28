@@ -81,10 +81,9 @@ void main() {
     expect(theTrick.getKnow(), equals(true));
   });
 
-  //TODO Add the feature list method tests(x3)
-
   //---------------------------------------------------------------------------
   // Feature Class Tests
+  //TODO Add the feature list method tests(x3)
 
   //---------------------------------------------------------------------------
   // Trick List class Tests

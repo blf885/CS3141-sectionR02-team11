@@ -1,8 +1,3 @@
-// Ben was here agian!
-// Logan was here!
-// Preston was here!
-// Mel was here!
-
 import 'package:flutter/material.dart';
 import 'package:project_knievel/Trick.dart';
 import 'package:project_knievel/TrickList.dart';
