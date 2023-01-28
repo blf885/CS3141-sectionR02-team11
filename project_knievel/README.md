@@ -1,6 +1,6 @@
 # project_knievel
 
-A new Flutter project.
+A new Flutter project. See project proposal and project report for details
 
 ## Getting Started
 
